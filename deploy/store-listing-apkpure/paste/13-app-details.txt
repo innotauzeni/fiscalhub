@@ -1,0 +1,9 @@
+Version: 1.0.0 (version code 1)
+Price: Free (companies subscribe to a plan after the free trial; plans are paid to Daraerp directly by Paynow, EcoCash or bank transfer)
+Ads: None
+In-app purchases sold through the store: None
+Minimum Android version: Android 7.0 (API level 24)
+Languages: English
+Countries: All (made for businesses registered with ZIMRA in Zimbabwe)
+Requires an account: Yes. Users sign in with the FiscalHub account of their company. New companies can register in the app.
+Copyright: © 2026 Daraerp Private Limited. All rights reserved.

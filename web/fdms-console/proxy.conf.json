@@ -1,0 +1,16 @@
+{
+  "/api": {
+    "target": "https://localhost:7167",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/swagger": {
+    "target": "https://localhost:7167",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/health": {
+    "target": "https://localhost:7167",
+    "secure": false
+  }
+}

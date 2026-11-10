@@ -1,0 +1,6 @@
+First release of FiscalHub:
+• Fiscal tax invoices, credit and debit notes signed by ZIMRA FDMS
+• Automatic fiscal days and an offline queue
+• Invoice designer with your own A4 layout
+• Zoho Books integration
+• Notifications, approvals, reports and VAT summaries

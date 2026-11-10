@@ -1,0 +1,32 @@
+FiscalHub puts ZIMRA fiscalisation in your pocket. Issue fiscal tax invoices, credit notes and debit notes that are signed and sent to ZIMRA's FDMS in seconds, wherever you are, without a fiscal printer on every counter.
+
+WHY FISCALHUB
+• ZIMRA FDMS compliant: every invoice is signed by your registered fiscal device and accepted by ZIMRA, with the QR code and verification code your customers can check.
+• Works the way you sell: quick sale at the counter, or a full invoice with the customer's TIN and VAT number.
+• Fiscal days handled for you: a day opens with your first sale and closes at the end of the day, with ZIMRA's counters checked.
+• Never lose a sale: if the internet drops, receipts wait and are sent the moment you are back online.
+
+WHAT YOU CAN DO
+• Fiscal tax invoices, credit notes and debit notes, in USD, ZWG and other currencies
+• Share the fiscal PDF by WhatsApp or email, or send a link your customer opens in the browser
+• Design your own A4 invoice: logo, colours, fonts and layout, always titled FISCAL TAX INVOICE
+• Customers and items with HS codes and VAT rates, ready to pick
+• Several devices and branches, with each user limited to their own tills
+• Approvals: credit notes and other sensitive actions can wait for a manager's OK
+• Dashboard of today's sales, pending receipts and what needs your attention
+• Notifications for rejected receipts, expiring certificates, approvals and payments
+• Reports and VAT summaries for your returns
+
+CONNECTED
+• Zoho Books: connect once and the invoices and credit notes you raise in Zoho are fiscalised, with the fiscal number, verification code and PDF written back to Zoho.
+• API and webhooks for your own ERP, shop or POS system.
+
+SECURE
+• Two-step sign-in and passkeys
+• Your company's data is kept separate from every other company's
+• Encrypted connections and an audit trail of who did what
+
+GETTING STARTED
+Create your company in the app, confirm your email and start the free trial. Register your ZIMRA fiscal device with the activation key ZIMRA gave you, then issue your first fiscal invoice. Start on a ZIMRA test device and switch to production when you are approved.
+
+FiscalHub is an independent product by Daraerp Private Limited. It is not affiliated with or endorsed by the Zimbabwe Revenue Authority (ZIMRA).

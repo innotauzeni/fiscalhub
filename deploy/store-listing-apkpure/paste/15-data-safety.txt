@@ -1,0 +1,11 @@
+Data collected, and why:
+- Name, email address, phone and user name: to sign in and to send alerts.
+- Company details (name, TIN, VAT number, address): printed on fiscal invoices, as ZIMRA requires.
+- Invoices, customers, items and payments: to fiscalise the sales with ZIMRA and to keep the company's records.
+- Device and sign-in information (IP address, browser or app, time): for security and the audit trail.
+
+Data shared: invoice data is sent to ZIMRA's Fiscal Device Management System, as the law requires for fiscalisation. If a company connects Zoho Books, its own Zoho data is exchanged with its Zoho account. Nothing is sold, and there are no ads or trackers.
+
+Security: all data is encrypted in transit (HTTPS). Passwords are stored hashed; access tokens and secrets are encrypted.
+
+Deleting data: users and companies can ask for their account to be deleted by emailing <your support email>. Fiscal records are kept for the period Zimbabwe tax law requires.

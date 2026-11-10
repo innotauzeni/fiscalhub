@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+/* dark mode is switched by a class on <html> (see ThemeService) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
+}
+
+@layer base {
+  html { font-family: var(--font-sans); -webkit-tap-highlight-color: transparent; -webkit-text-size-adjust: 100%; }
+  /* installed as an app: no rubber-band pull-to-refresh bounce, and text is not selectable on controls */
+  @media (display-mode: standalone) { html, body { overscroll-behavior-y: none; } button, [role="button"], .btn, .btn-ghost, .tab, .icon-btn { -webkit-user-select: none; user-select: none; } }
+  .dark { color-scheme: dark; }   /* native dropdowns and date pickers follow the theme */
+  button, [role="button"] { cursor: pointer; }
+  button:disabled { cursor: default; }
+}
+
+/* A few reusable building blocks so page templates stay short and consistent. */
+@layer components {
+  .card { @apply rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-800 dark:bg-slate-900; }
+  .card-title { @apply mb-3 text-sm font-semibold text-slate-700 dark:text-slate-200; }
+  .label { @apply mb-1 block text-xs font-medium text-slate-500 dark:text-slate-400; }
+  .input { @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder-slate-400 outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30 disabled:opacity-60 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:placeholder-slate-500; }
+  .btn { @apply inline-flex items-center justify-center gap-1.5 rounded-lg bg-brand-600 px-3.5 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-brand-700 disabled:opacity-50; }
+  .btn-ghost { @apply inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-transparent px-3.5 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100 disabled:opacity-50 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800; }
+  .btn-danger { @apply inline-flex items-center justify-center gap-1.5 rounded-lg bg-red-600 px-3.5 py-2 text-sm font-medium text-white transition hover:bg-red-700 disabled:opacity-50; }
+  .btn-sm { @apply px-2.5 py-1 text-xs; }
+  .table { @apply w-full text-left text-sm; }
+  .table th { @apply whitespace-nowrap border-b border-slate-200 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-800 dark:text-slate-400; }
+  .table td { @apply border-b border-slate-100 px-3 py-2.5 align-top dark:border-slate-800/70; }
+  .table tbody tr:hover { @apply bg-slate-50 dark:bg-slate-800/40; }
+  .badge { @apply inline-flex items-center rounded-full bg-slate-100 px-2 py-0.5 text-xs font-medium text-slate-700 dark:bg-slate-800 dark:text-slate-200; }
+  .badge-ok { @apply bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300; }
+  .badge-warn { @apply bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300; }
+  .badge-bad { @apply bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-300; }
+  .badge-info { @apply bg-sky-100 text-sky-800 dark:bg-sky-900/40 dark:text-sky-300; }
+  select.input option { @apply bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100; }
+  .icon-btn { @apply inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-slate-300 hover:bg-slate-100 hover:text-slate-800 disabled:opacity-40 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100; }
+  .icon-btn-primary { @apply border-brand-100 bg-brand-50 text-brand-600 hover:border-brand-500/40 hover:bg-brand-100 hover:text-brand-700 dark:border-brand-500/30 dark:bg-brand-500/10 dark:text-brand-100 dark:hover:bg-brand-500/20; }
+  .icon-btn-danger { @apply hover:border-red-200 hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-900/30 dark:hover:text-red-300; }
+  .pg { @apply inline-flex h-8 min-w-8 items-center justify-center rounded-lg border border-slate-200 px-2 text-xs font-medium text-slate-600 transition hover:bg-slate-100 disabled:opacity-40 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800; }
+  .pg-active { @apply border-brand-600 bg-brand-600 text-white hover:bg-brand-700 dark:border-brand-600; }
+  .code { @apply rounded-md bg-slate-100 px-2 py-1 font-mono text-xs text-slate-700 dark:bg-slate-800 dark:text-slate-200; }
+  .tab { @apply flex items-center gap-2 border-b-2 border-transparent px-4 py-2.5 text-sm font-medium text-slate-500 transition hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100; }
+  .tab-active { @apply border-brand-600 text-brand-700 dark:text-brand-100; }
+  /* the integration guide (rendered markdown) */
+  .doc { @apply text-[15px] leading-7 text-slate-700 dark:text-slate-300; }
+  .doc h1 { @apply mb-4 text-3xl font-semibold tracking-tight text-slate-900 dark:text-slate-100; }
+  .doc h2 { @apply mb-3 mt-12 scroll-mt-20 border-b border-slate-200 pb-2 text-2xl font-semibold tracking-tight text-slate-900 dark:border-slate-800 dark:text-slate-100; }
+  .doc h3 { @apply mb-2 mt-8 scroll-mt-20 text-lg font-semibold text-slate-900 dark:text-slate-100; }
+  .doc p { @apply my-3; }
+  .doc ul { @apply my-3 list-disc space-y-1 pl-6; }
+  .doc ol { @apply my-3 list-decimal space-y-1 pl-6; }
+  .doc a { @apply text-brand-600 underline decoration-brand-500/30 underline-offset-2 hover:decoration-brand-500 dark:text-brand-100; }
+  .doc strong { @apply font-semibold text-slate-900 dark:text-slate-100; }
+  .doc code { @apply rounded-md bg-slate-100 px-1.5 py-0.5 font-mono text-[13px] text-slate-800 dark:bg-slate-800 dark:text-slate-200; }
+  .doc pre { @apply overflow-x-auto bg-slate-950 p-4 text-[13px] leading-6 text-slate-100; }
+  .doc pre code { @apply bg-transparent p-0 text-inherit dark:bg-transparent; }
+  /* code blocks: a header with the language (or language tabs) and a copy button */
+  .doc .cb { @apply my-5 overflow-hidden rounded-xl border border-slate-800 bg-slate-950 shadow-sm; }
+  .doc .cb-head { @apply flex items-center justify-between gap-2 border-b border-white/10 bg-slate-900 px-3 py-1.5; }
+  .doc .cb-lang { @apply text-xs font-medium uppercase tracking-wide text-slate-400; }
+  .doc .cb-tablist { @apply flex min-w-0 gap-1 overflow-x-auto; }
+  .doc .cb-tab { @apply cursor-pointer whitespace-nowrap rounded-md px-2.5 py-1 text-xs font-medium text-slate-400 transition hover:bg-white/10 hover:text-slate-100; }
+  .doc .cb-tab.cb-active { @apply bg-white/15 text-white; }
+  .doc .doc-copy { @apply cursor-pointer rounded-md border border-white/15 px-2 py-0.5 text-xs text-slate-300 transition hover:bg-white/10; }
+  .doc .anchor { @apply ml-2 text-slate-300 no-underline opacity-0 transition dark:text-slate-600; }
+  .doc h2:hover .anchor, .doc h3:hover .anchor { @apply opacity-100; }
+  .doc .doc-table { @apply my-5 overflow-x-auto rounded-xl border border-slate-200 dark:border-slate-800; }
+  .doc .doc-table table { @apply my-0 block w-full min-w-full; }
+  .doc .doc-table tr:last-child td { @apply border-b-0; }
+  .doc ol { @apply list-none space-y-2.5 pl-0; counter-reset: step; }
+  .doc ol > li { @apply relative pl-10; counter-increment: step; }
+  .doc ol > li::before { content: counter(step); @apply absolute left-0 top-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-brand-600 text-xs font-bold text-white; }
+  .doc table { @apply my-4 block w-full overflow-x-auto text-sm; }
+  .doc th { @apply whitespace-nowrap border-b border-slate-300 bg-slate-50 px-3 py-2 text-left text-xs font-semibold uppercase tracking-wide text-slate-500 dark:border-slate-700 dark:bg-slate-900; }
+  .doc td { @apply border-b border-slate-100 px-3 py-2 align-top dark:border-slate-800; }
+  .doc blockquote { @apply my-4 border-l-4 border-brand-500/40 pl-4 text-slate-600 dark:text-slate-400; }
+  .doc hr { @apply my-8 border-slate-200 dark:border-slate-800; }
+
+  /* HTTP method badges and call-out boxes inside the guide */
+  .doc .mbadge { @apply mr-1.5 inline-block rounded-md px-1.5 py-0.5 align-middle font-mono text-[11px] font-bold tracking-wide text-white; }
+  .doc .mbadge-get { @apply bg-emerald-600; }
+  .doc .mbadge-post { @apply bg-blue-600; }
+  .doc .mbadge-put, .doc .mbadge-patch { @apply bg-amber-600; }
+  .doc .mbadge-delete { @apply bg-red-600; }
+  .doc .doc-callout { @apply rounded-xl border-l-4 px-4 py-3 text-slate-700 dark:text-slate-300; }
+  .doc .doc-callout::before { content: attr(data-label); @apply mb-0.5 block text-xs font-bold uppercase tracking-wide; }
+  .doc .doc-callout-info::before { @apply text-sky-700 dark:text-sky-300; }
+  .doc .doc-callout-tip::before { @apply text-emerald-700 dark:text-emerald-300; }
+  .doc .doc-callout-warn::before { @apply text-amber-700 dark:text-amber-300; }
+  .doc .doc-callout p { @apply my-1; }
+  .doc .doc-callout-info { @apply border-sky-500 bg-sky-50 dark:bg-sky-900/20; }
+  .doc .doc-callout-tip { @apply border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20; }
+  .doc .doc-callout-warn { @apply border-amber-500 bg-amber-50 dark:bg-amber-900/20; }
+  .hint { @apply mt-1 text-xs text-slate-500 dark:text-slate-400; }
+}
+
+/* landing page: scroll reveal, drifting background glow, shimmer */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+.reveal-in { opacity: 1; transform: none; }
+@keyframes drift { 0%, 100% { transform: translate3d(0, 0, 0) scale(1); } 50% { transform: translate3d(40px, -30px, 0) scale(1.08); } }
+@keyframes floaty { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+@keyframes ping-soft { 0% { transform: scale(1); opacity: .6; } 80%, 100% { transform: scale(2.2); opacity: 0; } }
+.anim-drift { animation: drift 16s ease-in-out infinite; }
+.anim-float { animation: floaty 6s ease-in-out infinite; }
+.anim-ping { animation: ping-soft 2.4s ease-out infinite; }
+.bg-grid { background-image: linear-gradient(to right, rgb(148 163 184 / .12) 1px, transparent 1px), linear-gradient(to bottom, rgb(148 163 184 / .12) 1px, transparent 1px); background-size: 44px 44px; mask-image: radial-gradient(ellipse at 50% 0%, #000 30%, transparent 75%); }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } .anim-drift, .anim-float, .anim-ping { animation: none; } }

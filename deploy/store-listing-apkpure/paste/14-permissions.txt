@@ -1,0 +1,4 @@
+The app asks for only one permission:
+- Internet: to sign in and to send invoices to FiscalHub and ZIMRA's FDMS.
+
+Files (an invoice to import, a logo) are chosen by the user through Android's own file picker, so the app needs no storage permission. It does not use the camera, microphone, contacts, location or SMS.
